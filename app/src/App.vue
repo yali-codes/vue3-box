@@ -1,23 +1,19 @@
 <template>
-  <HelloWorld msg="Hello, world." />
+  <NConfigProvider :locale="zhCN" :date-locale="dateZhCN" :theme-overrides="themeConfig">
+    <AppConfig>
+      <router-view />
+    </AppConfig>
+  </NConfigProvider>
 </template>
 
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import AppConfig from '@components/config'
+import { useTheme } from '@hooks/index'
+import { NConfigProvider, zhCN, dateZhCN } from 'naive-ui'
+
+const { themeConfig } = useTheme()
 </script>
 
-<style scoped> 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+<style lang="less">
+@import url('@styles/app.less');
 </style>

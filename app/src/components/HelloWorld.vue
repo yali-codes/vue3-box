@@ -1,18 +1,19 @@
 <template>
   <h1>{{ msg }}</h1>
-  <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
-  </div>
+  <n-button type="primary" @click="count++">count is {{ count }}</n-button>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import { NButton } from 'naive-ui'
 
 defineProps({
-  msg: String
+  msg: String,
 })
 
 const count = ref(0)
+
+const test = ''
 </script>
 
 <style scoped>
