@@ -21,7 +21,6 @@ coverage
 .env.production.local
 
 # Editor
-.vscode
 
 # Misc.
 .DS_Store
