@@ -12,8 +12,6 @@ defineProps({
 })
 
 const count = ref(0)
-
-const test = ''
 </script>
 
 <style scoped>
