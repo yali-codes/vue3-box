@@ -1,5 +1,5 @@
 {
-  "./app/**/*.{js,vue,jsx,html}": [
+  "**/*.{js,vue,jsx,html}": [
     "eslint --fix",
     "git add"
   ]
