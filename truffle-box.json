@@ -1,7 +1,5 @@
 {
-  "ignore": [
-    ".github"
-  ],
+  "ignore": [".github"],
   "commands": {
     "Compile": "cd truffle && truffle compile",
     "Migrate": "cd truffle && truffle migrate",
@@ -11,6 +9,6 @@
     "Build for production": "cd app && pnpm build"
   },
   "hooks": {
-    "post-unpack": "cd app && npm ci"
+    "post-unpack": "cd app && pnpm i"
   }
 }
