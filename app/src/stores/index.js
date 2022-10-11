@@ -10,7 +10,7 @@ export const ethStore = reactive({
   setAccount(account) {
     this.account = account
   },
-  addContractMeta(aritfact, contractMeta) {
-    this.contractsp[aritfact] = contractMeta
+  addContractMeta(contractName, contractMeta) {
+    this.contracts[contractName] = contractMeta
   },
 })
