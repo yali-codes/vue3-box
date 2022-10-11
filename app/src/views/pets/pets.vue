@@ -1,6 +1,6 @@
 <template>
   <div class="pets-page">
-    <div class="pet-title">Pete's Pet Shop</div>
+    <div class="pet-title">Devie's Pet Shop</div>
     <div class="pet-list">
       <template v-for="pet in pets" :key="pet.id">
         <div class="pet-item-container">
@@ -20,7 +20,10 @@
                 <strong>Location</strong>:
                 <span>{{ pet.location }}</span>
               </p>
-              <n-button size="small" class="pet-adopt-btn">{{ pet.status }}</n-button>
+              <div class="pet-btns">
+                <n-button size="small">{{ pet.status }}</n-button>
+                <n-button type="primay" tertiary size="small">Details</n-button>
+              </div>
             </div>
           </div>
         </div>
@@ -31,15 +34,17 @@
 
 <script>
 export default {
-  name: 'PetShop',
+  name: 'Pets',
 }
 </script>
 
 <script setup>
-import pets from './pets-data'
+import petData from './pet-data'
+import { ref } from 'vue'
 import { useAssets } from '@hooks/index'
 import { NButton } from 'naive-ui'
 
+const pets = ref(petData || [])
 const { getAssetUrl } = useAssets()
 </script>
 
