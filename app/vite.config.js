@@ -19,4 +19,8 @@ export default defineConfig({
       '@directives': resolve(__dirname, './src/directives'),
     },
   },
+  build: {
+    sourcemap: true,
+    emptyOutDir: true,
+  },
 })

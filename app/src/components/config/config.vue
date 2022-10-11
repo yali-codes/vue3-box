@@ -14,8 +14,8 @@
 </template>
 
 <script setup>
-import Dialog from './dialog.vue'
-import Notification from './notification.vue'
-import Message from './message.vue'
+import Dialog from './Dialog.vue'
+import Notification from './Notification.vue'
+import Message from './Message.vue'
 import { NLoadingBarProvider, NDialogProvider, NMessageProvider, NNotificationProvider } from 'naive-ui'
 </script>
