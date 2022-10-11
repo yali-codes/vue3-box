@@ -11,7 +11,7 @@ export default defineConfig({
     alias: {
       '@utils': resolve(__dirname, './src/utils'),
       '@hooks': resolve(__dirname, './src/hooks'),
-      '@views': resolve(__dirname, './src/views'),
+      '@assets': resolve(__dirname, './src/assets'),
       '@styles': resolve(__dirname, './src/styles'),
       '@stores': resolve(__dirname, './src/stores'),
       '@router': resolve(__dirname, './src/router'),

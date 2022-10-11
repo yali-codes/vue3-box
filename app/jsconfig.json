@@ -5,7 +5,7 @@
 		"paths": {
 			"@utils/*": ["./src/utils/*"],
 			"@hooks/*": ["./src/hooks/*"],
-			"@views/*": ["./src/views/*"],
+			"@assets/*": ["./src/assets/*"],
 			"@styles/*": ["./src/styles/*"],
 			"@stores/*": ["./src/stores/*"],
 			"@router/*": ["./src/router/*"],
