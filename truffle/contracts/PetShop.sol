@@ -15,17 +15,16 @@ contract PetShop {
     uint[] public adoptedPetList;
 
     // Define event
-    event AdoptedEvent(uint petId, address adopter);
+    event AdoptedEvent();
 
     // Define an adoped method.
     // Store petId as key and Pet as value in map named pets.
     // Store petId in adoptedPetList.
     // Notify front-end by emitting event.
-    // Return true
     function adopt(uint petId) public {
         pets[petId] = Pet({ adopter: msg.sender, adopted: true });
         adoptedPetList.push(petId);
-        emit AdoptedEvent(petId, msg.sender);
+        emit AdoptedEvent();
     }
 
     // Return pet's adopted status
