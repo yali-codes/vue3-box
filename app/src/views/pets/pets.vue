@@ -21,8 +21,8 @@
                 <span>{{ pet.location }}</span>
               </p>
               <div class="pet-btns">
-                <n-button size="small" :disabled="pet.status === 'Adopted'" @click="adoptHanlder(pet)">
-                  {{ pet.status }}
+                <n-button size="small" :disabled="pet.statusText === 'Adopted'" @click="adoptHanlder(pet)">
+                  {{ pet.statusText }}
                 </n-button>
                 <n-button type="primay" tertiary size="small">Details</n-button>
               </div>
@@ -42,19 +42,41 @@ export default {
 
 <script setup>
 import petData from './pet-data'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
+import { NButton } from 'naive-ui'
 import { useAssets } from '@hooks/index'
 import { ethStore } from '@stores/index'
-import { NButton } from 'naive-ui'
+import { $message } from '@libs/global-api'
 
 const pets = ref(petData || [])
 const { getAssetUrl } = useAssets()
 
+onMounted(() => {
+  _markAdoptedPets()
+  _monitorBlockEvent()
+})
+
+function _monitorBlockEvent() {
+  ethStore.contracts['PetShop'].events.AdoptedEvent({ filter: {}, fromBlock: 'latest' }, err => {
+    if (err) return
+    _markAdoptedPets()
+  })
+}
+
+async function _markAdoptedPets() {
+  const adoptedPetIds = await ethStore.contracts['PetShop'].methods.getAdoptedPets().call()
+  if (adoptedPetIds.length) {
+    const tempAdoptedPetIds = adoptedPetIds.map(petId => Number(petId))
+    pets.value.forEach(pet => (tempAdoptedPetIds.includes(pet.id) ? (pet.statusText = 'Adopted') : 'Adopt'))
+  }
+}
+
 // Update pet's status
-function _updatePetStatus(pet) {
+// eslint-disable-next-line no-unused-vars
+async function _updatePetsStatus(pet) {
   try {
-    const adopted = ethStore.contracts['PetShop'].methods.isAdopted(pet.id).call()
-    pet.status = pet.status === 'Adopt' ? 'Adopted' : 'Adopt'
+    const adopted = await ethStore.contracts['PetShop'].methods.isAdopted(pet.id).call()
+    pet.statusText = adopted ? 'Adopted' : 'Adopt'
   } catch (err) {
     console.error(err)
   }
@@ -63,14 +85,16 @@ function _updatePetStatus(pet) {
 // Define adopted method
 async function adoptHanlder(pet) {
   try {
-    if (ethStore.contracts['PetShop'].isAdopted(pet.id).call()) {
+    // Judge whether the pet has been adopted
+    if (await ethStore.contracts['PetShop'].methods.isAdopted(pet.id).call()) {
       return
     }
-    // 1.Call the adopt method of smart contract
+
+    // Call the adopt method of smart contract
     await ethStore.contracts['PetShop'].methods.adopt(pet.id).send({ from: ethStore.account, gas: 1000000 })
 
-    // 2.Excute _updatePetStatus() method
-    _updatePetStatus(pet)
+    // Pop-up success message
+    $message.success('Adopt successfully!')
   } catch (err) {
     console.error(err)
   }

@@ -22,11 +22,10 @@ contract PetShop {
     // Store petId in adoptedPetList.
     // Notify front-end by emitting event.
     // Return true
-    function adopt(uint petId) public returns (bool) {
+    function adopt(uint petId) public {
         pets[petId] = Pet({ adopter: msg.sender, adopted: true });
         adoptedPetList.push(petId);
         emit AdoptedEvent(petId, msg.sender);
-        return true;
     }
 
     // Return pet's adopted status

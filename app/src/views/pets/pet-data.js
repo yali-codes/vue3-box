@@ -6,7 +6,7 @@ export default [
     age: 3,
     breed: 'Scottish Terrier',
     location: 'Lisco, Alabama',
-    status: 'Adopt',
+    statusText: 'Adopt',
   },
   {
     id: 1,
@@ -15,7 +15,7 @@ export default [
     age: 3,
     breed: 'Scottish Terrier',
     location: 'Tooleville, West Virginia',
-    status: 'Adopt',
+    statusText: 'Adopt',
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ export default [
     age: 2,
     breed: 'French Bulldog',
     location: 'Freeburn, Idaho',
-    status: 'Adopt',
+    statusText: 'Adopt',
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ export default [
     age: 2,
     breed: 'Boxer',
     location: 'Camas, Pennsylvania',
-    status: 'Adopt',
+    statusText: 'Adopt',
   },
   {
     id: 4,
@@ -42,7 +42,7 @@ export default [
     age: 2,
     breed: 'French Bulldog',
     location: 'Gerber, South Dakota',
-    status: 'Adopt',
+    statusText: 'Adopt',
   },
   {
     id: 5,
@@ -51,7 +51,7 @@ export default [
     age: 3,
     breed: 'French Bulldog',
     location: 'Innsbrook, Illinois',
-    status: 'Adopt',
+    statusText: 'Adopt',
   },
   {
     id: 6,
@@ -60,7 +60,7 @@ export default [
     age: 3,
     breed: 'Golden Retriever',
     location: 'Soudan, Louisiana',
-    status: 'Adopt',
+    statusText: 'Adopt',
   },
   {
     id: 7,
@@ -69,7 +69,7 @@ export default [
     age: 3,
     breed: 'Golden Retriever',
     location: 'Jacksonwald, Palau',
-    status: 'Adopt',
+    statusText: 'Adopt',
   },
   {
     id: 8,
@@ -78,7 +78,7 @@ export default [
     age: 2,
     breed: 'French Bulldog',
     location: 'Honolulu, Hawaii',
-    status: 'Adopt',
+    statusText: 'Adopt',
   },
   {
     id: 9,
@@ -87,7 +87,7 @@ export default [
     age: 3,
     breed: 'Boxer',
     location: 'Matheny, Utah',
-    status: 'Adopt',
+    statusText: 'Adopt',
   },
   {
     id: 10,
@@ -96,7 +96,7 @@ export default [
     age: 2,
     breed: 'Boxer',
     location: 'Tyhee, Indiana',
-    status: 'Adopt',
+    statusText: 'Adopt',
   },
   {
     id: 11,
@@ -105,7 +105,7 @@ export default [
     age: 3,
     breed: 'Scottish Terrier',
     location: 'Windsor, Montana',
-    status: 'Adopt',
+    statusText: 'Adopt',
   },
   {
     id: 12,
@@ -114,7 +114,7 @@ export default [
     age: 3,
     breed: 'French Bulldog',
     location: 'Kingstowne, Nevada',
-    status: 'Adopt',
+    statusText: 'Adopt',
   },
   {
     id: 13,
@@ -123,7 +123,7 @@ export default [
     age: 4,
     breed: 'Golden Retriever',
     location: 'Sultana, Massachusetts',
-    status: 'Adopt',
+    statusText: 'Adopt',
   },
   {
     id: 14,
@@ -132,7 +132,7 @@ export default [
     age: 2,
     breed: 'Golden Retriever',
     location: 'Broadlands, Oregon',
-    status: 'Adopt',
+    statusText: 'Adopt',
   },
   {
     id: 15,
@@ -141,6 +141,6 @@ export default [
     age: 2,
     breed: 'Golden Retriever',
     location: 'Dawn, Wisconsin',
-    status: 'Adopt',
+    statusText: 'Adopt',
   },
 ]
