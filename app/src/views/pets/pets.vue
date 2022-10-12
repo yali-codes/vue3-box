@@ -1,6 +1,9 @@
 <template>
   <div class="pets-page">
-    <div class="pet-title">Devie's Pet Shop</div>
+    <div class="pet-title">
+      <span>Devie's Pet Shop</span>
+      <n-button size="small" type="primary" @click="$router.back()">Back</n-button>
+    </div>
     <div class="pet-list">
       <template v-for="pet in pets" :key="pet.id">
         <div class="pet-item-container">
@@ -24,7 +27,6 @@
                 <n-button size="small" :disabled="pet.statusText === 'Adopted'" @click="adoptHanlder(pet)">
                   {{ pet.statusText }}
                 </n-button>
-                <n-button type="primay" tertiary size="small">Details</n-button>
               </div>
             </div>
           </div>
@@ -68,17 +70,6 @@ async function _markAdoptedPets() {
   if (adoptedPetIds.length) {
     const tempAdoptedPetIds = adoptedPetIds.map(petId => Number(petId))
     pets.value.forEach(pet => (tempAdoptedPetIds.includes(pet.id) ? (pet.statusText = 'Adopted') : 'Adopt'))
-  }
-}
-
-// Update pet's status
-// eslint-disable-next-line no-unused-vars
-async function _updatePetsStatus(pet) {
-  try {
-    const adopted = await ethStore.contracts['PetShop'].methods.isAdopted(pet.id).call()
-    pet.statusText = adopted ? 'Adopted' : 'Adopt'
-  } catch (err) {
-    console.error(err)
   }
 }
 

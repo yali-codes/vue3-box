@@ -1,7 +1,7 @@
 <template>
   <div class="home-page">
-    <HelloWorld msg="Hello, world." />
-    <n-button type="primary" @click="handleClick">The shop of pets</n-button>
+    <HelloWorld msg="Hello, Devie's Pet Shop." />
+    <n-button type="primary" size="small" circle @click="handleClick">Go</n-button>
   </div>
 </template>
 
@@ -22,6 +22,6 @@ const handleClick = () => {
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 @import url('./home.less');
 </style>

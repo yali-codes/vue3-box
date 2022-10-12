@@ -1,17 +1,52 @@
 .pets-page {
   width: 1170px;
+  height: 100%;
   margin: 0 auto;
+  overflow: hidden;
   .pet-title {
     height: 70px;
-    line-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
     font-size: 36px;
-    text-align: center;
     border-bottom: 1px solid #eee;
     margin-bottom: 40px;
+    box-sizing: border-box;
   }
   .pet-list {
     display: flex;
     flex-wrap: wrap;
+    height: calc(~'100% - 120px');
+    overflow-y: overlay;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-track-piece {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      min-height: 150px;
+      min-width: 150px;
+      border-radius: 8px;
+      background-color: #ddd;
+    }
+
+    &::-webkit-scrollbar-thumb:vertical:hover {
+      background-color: #a7bdc3;
+    }
+
+    &::-webkit-scrollbar-thumb:horizontal:hover {
+      background-color: #a7bdc3;
+    }
+
+    &::-webkit-scrollbar-corner {
+      visibility: hidden;
+    }
   }
   .pet-item-container {
     width: 25%;
@@ -49,8 +84,10 @@
       display: block;
       border-radius: 6px;
       margin-bottom: 20px;
+      transition: all ease-in 300ms;
       &:hover {
         opacity: 0.8;
+        cursor: pointer;
       }
     }
   }
