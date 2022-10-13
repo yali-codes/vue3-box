@@ -1,5 +1,5 @@
 {
-  "ignore": [".github"],
+  "ignore": [".github", "README.md"],
   "commands": {
     "Compile": "cd truffle && truffle compile",
     "Migrate": "cd truffle && truffle migrate",
